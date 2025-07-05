@@ -18,6 +18,7 @@ import {
   PieChartIcon as RechartsPieChart,
   Target,
 } from "lucide-react"
+import AIChat from "@/components/AIChat"
 import {
   LineChart,
   Line,
@@ -349,78 +350,7 @@ export default function Dashboard() {
           </TabsContent>
 
           <TabsContent value="insights" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Bot className="w-5 h-5 mr-2 text-blue-600" />
-                    AI Recommendations
-                  </CardTitle>
-                  <CardDescription>Personalized insights from your spending patterns</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <div className="flex items-start space-x-3">
-                      <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5" />
-                      <div>
-                        <div className="font-medium text-yellow-800">Unused Gym Membership</div>
-                        <div className="text-sm text-yellow-700">
-                          You haven't used your gym membership in 3 months. Consider canceling to save $29.99/month.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <div className="flex items-start space-x-3">
-                      <TrendingUp className="w-5 h-5 text-blue-600 mt-0.5" />
-                      <div>
-                        <div className="font-medium text-blue-800">Optimize Entertainment Spending</div>
-                        <div className="text-sm text-blue-700">
-                          You're spending $25.98 on entertainment. Consider bundling services for better value.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
-                      <div>
-                        <div className="font-medium text-green-800">Great Software Usage</div>
-                        <div className="text-sm text-green-700">
-                          Your Adobe Creative Suite usage is optimal. You're getting good value for money.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Savings Opportunities</CardTitle>
-                  <CardDescription>Potential monthly savings by category</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ResponsiveContainer width="100%" height={300}>
-                    <BarChart
-                      data={[
-                        { category: "Health", potential: 29.99, current: 0 },
-                        { category: "News", potential: 12.99, current: 0 },
-                        { category: "Software", potential: 0, current: 57.98 },
-                        { category: "Entertainment", potential: 0, current: 25.98 },
-                      ]}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="category" />
-                      <YAxis />
-                      <Tooltip />
-                      <Bar dataKey="potential" fill="#ef4444" name="Potential Savings" />
-                      <Bar dataKey="current" fill="#10b981" name="Optimized Spending" />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </CardContent>
-              </Card>
-            </div>
+            <AIChat />
           </TabsContent>
         </Tabs>
       </div>
