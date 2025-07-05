@@ -365,8 +365,10 @@ export default function AIChat() {
               <Send className="w-4 h-4" />
             </Button>
           </div>
-          <div className="mt-2 text-xs text-gray-500">
-            Példa kérdések: "Melyik a legdrágább előfizetésem?" • "Vannak nem használt előfizetéseim?" • "Találj olcsóbb alternatívákat a Netflix-hez"
+          <div className="mt-2 flex items-center justify-between">
+            <div className="text-xs text-gray-500">
+              Példa kérdések: "Melyik a legdrágább előfizetésem?" • "Vannak nem használt előfizetéseim?" • "Találj olcsóbb alternatívákat a Netflix-hez"
+            </div>
           </div>
         </div>
       </CardContent>

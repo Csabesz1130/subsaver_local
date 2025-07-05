@@ -19,6 +19,9 @@ import {
   Target,
 } from "lucide-react"
 import AIChat from "@/components/AIChat"
+import SavingsTracker from "@/components/SavingsTracker"
+import NotificationSystem from "@/components/NotificationSystem"
+import BudgetRecommendations from "@/components/BudgetRecommendations"
 import {
   LineChart,
   Line,
@@ -145,9 +148,13 @@ export default function Dashboard() {
             <Badge className="bg-green-100 text-green-800">
               <CheckCircle className="w-4 h-4 mr-1" />3 Accounts Connected
             </Badge>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" onClick={() => setSelectedTab("insights")}>
               <Bot className="w-4 h-4 mr-2" />
-              AI Insights
+              AI Chat
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => setSelectedTab("savings")}>
+              <Target className="w-4 h-4 mr-2" />
+              Megtakarítások
             </Button>
           </div>
         </div>
@@ -205,11 +212,13 @@ export default function Dashboard() {
 
         {/* Main Content Tabs */}
         <Tabs value={selectedTab} onValueChange={setSelectedTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="subscriptions">Subscriptions</TabsTrigger>
             <TabsTrigger value="cashflow">Cashflow</TabsTrigger>
-            <TabsTrigger value="insights">AI Insights</TabsTrigger>
+            <TabsTrigger value="insights">AI Chat</TabsTrigger>
+            <TabsTrigger value="savings">Savings</TabsTrigger>
+            <TabsTrigger value="recommendations">Budget</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
@@ -351,6 +360,14 @@ export default function Dashboard() {
 
           <TabsContent value="insights" className="space-y-6">
             <AIChat />
+          </TabsContent>
+
+          <TabsContent value="savings" className="space-y-6">
+            <SavingsTracker />
+          </TabsContent>
+
+          <TabsContent value="recommendations" className="space-y-6">
+            <BudgetRecommendations />
           </TabsContent>
         </Tabs>
       </div>
